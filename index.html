@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9X1YQ417WC"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-9X1YQ417WC');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loterias Premium - Bolões Exclusivos</title>
@@ -2802,5 +2811,24 @@
         loadJackpots();
         loadMaiorPremio();
     </script>
+<script>
+    document.addEventListener('click', function (event) {
+        var link = event.target.closest('a[href]');
+        if (!link) { return; }
+        var href = link.getAttribute('href') || '';
+        var label = (link.textContent || '').trim();
+        var eventName = null;
+        if (href.indexOf('wa.me') !== -1) {
+            eventName = 'click_whatsapp';
+        } else if (href.indexOf('loteriasonline.caixa.gov.br') !== -1) {
+            eventName = 'click_bolao_caixa';
+        } else if (href.indexOf('google.com/maps') !== -1) {
+            eventName = 'click_mapa';
+        }
+        if (eventName && typeof gtag === 'function') {
+            gtag('event', eventName, { link_url: href, link_text: label });
+        }
+    });
+</script>
 </body>
 </html>
