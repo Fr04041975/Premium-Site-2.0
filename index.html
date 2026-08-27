@@ -8,6 +8,7 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-9X1YQ417WC');
+        gtag('config', 'AW-18383874603');
     </script>
 
     <meta charset="UTF-8">
@@ -2827,6 +2828,9 @@
         }
         if (eventName && typeof gtag === 'function') {
             gtag('event', eventName, { link_url: href, link_text: label });
+        }
+        if (eventName === 'click_whatsapp' && typeof gtag === 'function') {
+            gtag('event', 'conversion', { send_to: 'AW-18383874603/49S5CIDSj-kcEKvUjr5E', value: 1.0, currency: 'BRL' });
         }
     });
 </script>
