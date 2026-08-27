@@ -2819,18 +2819,28 @@
         var href = link.getAttribute('href') || '';
         var label = (link.textContent || '').trim();
         var eventName = null;
-        if (href.indexOf('wa.me') !== -1) {
-            eventName = 'click_whatsapp';
-        } else if (href.indexOf('loteriasonline.caixa.gov.br') !== -1) {
-            eventName = 'click_bolao_caixa';
-        } else if (href.indexOf('google.com/maps') !== -1) {
-            eventName = 'click_mapa';
-        }
+if (href.indexOf('wa.me') !== -1) {
+    eventName = 'click_whatsapp';
+} else if (href.indexOf('bolao-caixa/10408') !== -1) {
+    eventName = 'click_bolao_loja1';
+} else if (href.indexOf('bolao-caixa/24215') !== -1) {
+    eventName = 'click_bolao_loja2';
+} else if (href.indexOf('bolao-caixa/3926') !== -1) {
+    eventName = 'click_bolao_loja3';
+} else if (href.indexOf('google.com/maps') !== -1) {
+    eventName = 'click_mapa';
+}
         if (eventName && typeof gtag === 'function') {
             gtag('event', eventName, { link_url: href, link_text: label });
         }
-        if (eventName === 'click_whatsapp' && typeof gtag === 'function') {
-            gtag('event', 'conversion', { send_to: 'AW-18383874603/49S5CIDSj-kcEKvUjr5E', value: 1.0, currency: 'BRL' });
+        var adsConversionMap = {
+            click_whatsapp: 'AW-18383874603/49S5CIDSj-kcEKvUjr5E',
+            click_bolao_loja1: 'AW-18383874603/_FcjCLDyj-kcEKvUjr5E',
+            click_bolao_loja2: 'AW-18383874603/2yBNCLPyj-kcEKvUjr5E',
+            click_bolao_loja3: 'AW-18383874603/e20qCLbyj-kcEKvUjr5E'
+        };
+        if (eventName && adsConversionMap[eventName] && typeof gtag === 'function') {
+            gtag('event', 'conversion', { send_to: adsConversionMap[eventName], value: 1.0, currency: 'BRL' });
         }
     });
 </script>
