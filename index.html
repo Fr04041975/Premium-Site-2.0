@@ -2196,7 +2196,11 @@
                 width: 100%;
             }
         }
-    </style>
+    
+.hero { position: relative; }
+.age-badge { position: absolute; top: 14px; right: 14px; background: #d10000; color: #fff; font-weight: 800; font-size: 1rem; min-width: 52px; height: 52px; padding: 0 6px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 3px solid #fff; box-shadow: 0 3px 10px rgba(0,0,0,.45); z-index: 20; line-height: 1; text-align: center; }
+@media (max-width: 640px) { .age-badge { width: 44px; height: 44px; min-width: 44px; font-size: .8rem; top: 10px; right: 10px; } }
+</style>
 </head>
 <body>
     <!-- HEADER -->
@@ -2231,6 +2235,7 @@
     <!-- HERO -->
     <section class="hero" id="inicio">
         <img class="hero-banner-image" src="images/hero-banner.png" alt="Loterias Premium — sua sorte pode mudar tudo">
+<div class="age-badge" title="Apostas para maiores de 18 anos">+18</div>
 <div class="container">
             <div class="hero-content">
                 <div class="hero-copy">
