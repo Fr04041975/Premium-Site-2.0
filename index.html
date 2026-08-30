@@ -2214,9 +2214,9 @@
 .hero { position: relative; }
 .age-badge { position: absolute; top: 14px; right: 14px; background: #d10000; color: #fff; font-weight: 800; font-size: 1rem; min-width: 52px; height: 52px; padding: 0 6px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 3px solid #fff; box-shadow: 0 3px 10px rgba(0,0,0,.45); z-index: 20; line-height: 1; text-align: center; }
 @media (max-width: 640px) { .age-badge { width: 44px; height: 44px; min-width: 44px; font-size: .8rem; top: 10px; right: 10px; } }
-.responsible-gaming-notice { background: #7a1620; color: #fff; padding: .9rem 0; text-align: center; }
-.responsible-gaming-notice p { margin: 0; font-size: .82rem; font-weight: 700; line-height: 1.5; }
-.responsible-gaming-notice strong { text-transform: uppercase; }
+.responsible-gaming-btn { position: fixed; top: 0; left: 50%; transform: translateX(-50%); z-index: 1200; background: #7a1620; color: #fff; border: none; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; padding: .45rem 1rem; font-size: .72rem; font-weight: 800; letter-spacing: .02em; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,.35); }
+.responsible-gaming-btn:hover { background: #931b28; }
+@media (max-width: 640px) { .responsible-gaming-btn { font-size: .64rem; padding: .4rem .75rem; } }
 </style>
 </head>
 <body>
@@ -2241,6 +2241,7 @@
         </div>
     </header>
 
+    <button type="button" class="responsible-gaming-btn" onclick="openModal('aviso-jogo-azar')" aria-label="Aviso de jogo responsável">⚠️ Jogo Responsável</button>
 
     <div class="modal-overlay" id="infoModal" role="dialog" aria-modal="true" aria-hidden="true">
         <div class="info-modal">
@@ -2276,13 +2277,6 @@
             </div>
         </div>
     </section>
-
-
-    <section class="responsible-gaming-notice" role="note" aria-label="Aviso de jogo responsável">
-<div class="container">
-<p>⚠️ <strong>Jogo de Azar - Risco de Dependência.</strong> Participação é voluntária. Tenha responsabilidade. Loterias da Caixa - Maiores de 18 anos. Em caso de problemas com jogo, procure ajuda em centrais de dependência.</p>
-</div>
-</section>
 
 <section class="maior-premio-banner loading" id="maiorPremioBanner" aria-live="polite">
         <div class="maior-premio-inner">
@@ -2681,6 +2675,7 @@
         }
         const modalTexts = {
             contato: '<h2>Contato</h2><p>Fale com nossa equipe pelo WhatsApp único das lojas.</p><a class="modal-whatsapp" target="_blank" href="https://wa.me/' + WHATSAPP + '?text=Olá%2C%20quero%20mais%20informações%20sobre%20os%20bolões."><i class="fab fa-whatsapp"></i>&nbsp; (67) 99311-4073</a>',
+            'aviso-jogo-azar': '<h2>⚠️ Jogo de Azar - Risco de Dependência</h2><p>Participação é voluntária. Tenha responsabilidade.</p><p>Loterias da Caixa - Maiores de 18 anos.</p><p>Em caso de problemas com jogo, procure ajuda em centrais de dependência.</p>',
             'quem-somos': '<h2>Quem Somos</h2><p>A Loterias Premium reúne pontos de venda parceiros das Loterias Caixa em Campo Grande/MS, com atendimento próximo e informações claras para quem participa de bolões.</p><p>Nosso objetivo é facilitar sua participação, sem prometer resultados ou ganhos.</p>',
             'jogo-responsavel': '<h2>Jogo Responsável</h2><p>Loterias são entretenimento e não devem comprometer seu orçamento. Aposte somente valores que você pode perder, nunca tente recuperar prejuízos e não use crédito para jogar.</p><p>Se jogar estiver causando sofrimento ou perda de controle, procure ajuda especializada e converse com pessoas de confiança.</p>',
             lgpd: '<h2>LGPD e Privacidade</h2><p>Respeitamos a sua privacidade e tratamos os dados pessoais somente para prestar atendimento, responder solicitações e melhorar a experiência no site.</p><p>Não vendemos seus dados. Você pode solicitar informações sobre o uso dos seus dados, correção ou exclusão quando aplicável, entrando em contato pelo WhatsApp <strong>(67) 99311-4073</strong>.</p><p>Ao continuar navegando, você declara estar ciente desta política de privacidade.</p>'
@@ -2857,9 +2852,3 @@ if (href.indexOf('wa.me') !== -1) {
 </script>
 </body>
 </html>
-
-      
-        
-      
-      Stop Claude
-    
